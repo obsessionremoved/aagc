@@ -3,7 +3,7 @@
 var c_green = '#449d44';
 var c_yellow = 'yellow';
 var c_red = 'red';
-var t_start_secs = 60;
+var t_start_secs = 90;
 var t_status = 'off';
 var current_slideshow = null;
 var current_slide_number = 1;
@@ -12,40 +12,17 @@ var timer = new easytimer.Timer();
 
 var slideshows = {
 
-	//'mock_concience': {
-	//	slide_path: 'slideshows/mock_concience',
-	//	num_slides: 4,
-	//	title: "Nothing At All"
-	//},
+
 	'Introduction': {
 		type: 'div',
 		slide_path: './',
 		num_slides: 1,
 		title: "Introduction / Meeting Format"
 	},
-	'Literature-B1': {
-		type: 'image',
-		slide_path: 'slideshows/Literature-B1',
-		num_slides: 2,
-		title: "Conference Committee: Literature — Item B1"
-	},
-	'Literature-B2': {
-		type: 'image',
-		slide_path: 'slideshows/Literature-B2',
-		num_slides: 4,
-		title: "Conference Committee: Literature — Item B2"
-	},
-	'Literature-CW': {
-		type: 'image',
-		slide_path: 'slideshows/Literature-CW',
-		num_slides: 3,
-		title: "Conference Committee: Literature — Items + C1, + C2, + C3, and Item W"
-	},
-	'Literature-V': {
-		type: 'image',
-		slide_path: 'slideshows/Literature-V',
-		num_slides: 2,
-		title: "Conference Committee: Literature — Item V"
+	'cornerstone6am': {
+		type: 'div',
+		num_slides: 1,
+		title: "Cornerstone 6am Group Conscience"
 	},
 
 };
@@ -65,7 +42,17 @@ function resetTimer() {
 
 function setTimerDuration(seconds) {
 	t_start_secs = seconds;
-	$('#first-round-time').text((t_start_secs / 60));
+	if (t_start_secs < 60) {
+		$('#first-round-time').text(seconds)
+		$('#first-round-time-word').text('seconds')
+	}
+	else {
+		$('#first-round-time').text((t_start_secs / 60));
+		let w = "minute";
+		if (t_start_secs > 60) w += 's';
+		$('#first-round-time-word').text(w);
+
+	}
 	resetTimer();
 }
 
@@ -115,7 +102,7 @@ $(function() {
 			$('#current-slide-img').attr('src', s.slide_path + '/slide' + current_slide_number + '.jpg').show();
 
 		}
-		else {
+		else if (s.type == 'div') {
 
 			console.log('in here');
 
@@ -162,7 +149,7 @@ $(function() {
 
 	setTimerDuration(t_start_secs);
 
-	$(".timer-box").draggable();
+	$(".timer-box").draggable().resizable().fitText(.45);
 
 	$("#settings-button").button({
 		icon: "ui-icon-gear",
