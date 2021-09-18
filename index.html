@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en"> 
+  <head>
+    <meta charset="utf-8">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest" crossorigin="use-credentials">
+
+
+    <link rel="stylesheet" href="../reset.css">
+    <link rel="stylesheet" href="../jquery-ui-1.12.1.custom/jquery-ui.min.css">
+    <link rel="stylesheet" href="aagc.css">
+  </head>
+  <body>
+    <div class="main-container">
+	  <!--
+      <div class="info-box">
+        <span>Facilitator: Matt M.</span>
+        <span>Note Taker: Austin R.</span>
+      </div>
+	  <div class="controls-box">
+		<select name="slideshows" id="slideshow_chooser">
+			<option value="choose">Choose...</option>
+		</select>
+		<span class="control-link" id="prev-slide">Prev</span>
+		<span class="control-link" id="next-slide">Next</span>
+	  </div>
+	  -->
+
+    <div class="header-container">
+        <select name="slideshows" id="slideshow_chooser">
+		    </select>         
+    </div>
+
+      <div class="slideshow-box">
+        <img id="current-slide-img" src="slide1.jpg">
+
+        <div id="current-slide-div">Content goes here</div>
+
+      </div>
+    </div>
+    <div id="prev-slide" class="nav-arrow">&lt;</div>
+    <div id="next-slide" class="nav-arrow">&gt;</div>
+	<div class="timer-box"><span id="timer-val">&nbsp;</span></div>
+    <button id="settings-button">S</button>
+    <div id="settings-box">
+
+        <div id="set-timer-slider"></div>
+        <button id="hide-clock-button">Show / Hide Timer</button>
+
+    </div> 
+
+
+<!-- SLIDE DIVS -->
+
+<div class="slide-content-holder" id="Introduction-slide1">
+
+
+  <div class="intro-slide-content">
+    <img class="slide1-upsidedown-triangle" src="upsidedown.jpg">
+    <h2>71st General Service Conference Agenda Topics</h2>
+    <h3>Group Conscience Meeting - Pass It On Group</h3>
+    <p>I will only be acting as an impartial facilitator, I will not voice my own opinions on the topics.</p>
+    <p>I will be keeping track of time. I have invited <span id="recorder-name">Austin R.</span> to act as our recorder.</p>
+    <ul>
+      <li>We will read over the topic summary.</li>
+      <li><strong>Discussion:</strong> I will call on one member at a time to share their thoughts without crosstalk for up to <span id="first-round-time">1.5</span> minutes. Anyone can pass.</li>
+      <li>We will have a second round of sharing if anyone has anything NEW to add. (up to 30 seconds)</li>
+      <li>We will take a vote. (if necessary)</li>
+      <li>We will hear from any members who had a minority opinion. (up to 1 min)</li>
+      <li>If anyone has changed their mind we will take a final vote.</li>
+      <li>The recorder may relay their notes, and make changes if necessary.</li>
+    </ul>
+    
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="../jquery-3.2.1/jquery.min.js"></script>
+    <script src="../jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+	<script src="../easytimer.js/dist/easytimer.min.js"></script>
+    <script type="text/javascript" src="aagc.js"></script>
+  </body>
+
+</html>
